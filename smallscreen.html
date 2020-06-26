@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background-image: url("https://i.imgur.com/qbQcmgr.png");
+            background-size: 100%;
+            background-position: 0px 247px;
+
+        }
+
+        .header {
+            widows: 100%;
+            height: 120px;
+            background-color: #051d3c;
+            color: white;
+            font-size: 6em;
+            text-align: center;
+        }
+
+        .colorsdiv {
+            display: flex;
+            width: 100%;
+            height: 10px;
+        }
+
+        .smallcolor1 {
+            width: 20%;
+
+            background-color: #fafafa;
+        }
+
+        .smallcolor2 {
+            width: 20%;
+            background-color: #051d3c;
+        }
+
+        .smallcolor3 {
+            width: 20%;
+            background-color: #bb0c30;
+        }
+
+        .smallcolor4 {
+            width: 20%;
+            background-color: #bb9b5c;
+        }
+
+        .smallcolor5 {
+            width: 20%;
+            background-color: #5c6c7c;
+        }
+
+        .boxarrowcontainer {
+            width: 100%;
+            display: flex;
+        }
+
+        .leftBoxArrow {
+            position: relative;
+            border-right-width: 5px;
+            border-right-style: solid;
+            border-right-color: #051d3c;
+            width: 50%;
+            background-color: #bb0c30;
+            ;
+            height: 50px;
+        }
+
+        .rightBoxArrow {
+            position: relative;
+            border-left-width: 5px;
+            border-left-style: solid;
+            border-left-color: #051d3c;
+            width: 50%;
+            background-color: #bb0c30;
+            ;
+            height: 50px;
+        }
+
+        .downmenu {
+            position: relative;
+            height: 40px;
+            background-color: #bb0c30;
+            border-top-width: 10px;
+            border-top-style: solid;
+            border-top-color: #051d3c;
+            border-bottom-width: 15px;
+            border-bottom-style: outset;
+            border-bottom-color: #bb0c30;
+            width: 100%;
+        }
+
+        .backgroundifuser {
+            position: fixed;
+            z-index: -10;
+            height: 100%;
+            width: 100%;
+            background: rgb(0, 0, 0);
+            background: linear-gradient(180deg, rgba(255, 255, 255, .6) 0%, #051d3c 100%);
+
+        }
+
+
+        .innerarrowrightTri {
+            position: absolute;
+            left: calc(50% - 20px);
+            top: 14px;
+            border: solid white;
+            border-width: 0 7px 7px 0;
+            display: inline-block;
+            padding: 7px;
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+        }
+
+        .innerarrowleftTri {
+            position: absolute;
+            top: 14px;
+            left: 50%;
+            border: solid white;
+            border-width: 0 7px 7px 0;
+            display: inline-block;
+            padding: 7px;
+            transform: rotate(135deg);
+            -webkit-transform: rotate(135deg);
+
+        }
+
+        .innerarrowdownTri {
+            position: absolute;
+            top: 4px;
+            left: calc(50% - 10px);
+
+            border: solid white;
+            border-width: 0 7px 7px 0;
+            display: inline-block;
+            padding: 7px;
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+        }
+
+        .blueoverlay1R {
+            position: absolute;
+            right: 20%;
+            top: 186px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 44px 44px;
+            border-color: transparent transparent #051d3c transparent;
+        }
+
+        .blueoverlay1L {
+            position: absolute;
+            left: 20%;
+            top: 186px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 44px 0 0 44px;
+            border-color: transparent transparent transparent #051d3c;
+        }
+
+        .blueoverlay2L {
+            position: absolute;
+            width: 20%;
+            left: 0;
+            height: 100px;
+            top: 130px;
+            background-color: #051d3c;
+        }
+
+        .blueoverlay2R {
+            position: absolute;
+            width: 20%;
+            right: 0;
+            height: 100px;
+            top: 130px;
+            background-color: #051d3c;
+        }
+
+        .brownoverlay1R {
+            position: absolute;
+            top: 130px;
+            right: calc(20% - 25px);
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 25px 0 25px 25px;
+            border-color: transparent transparent transparent #bb0c30;
+        }
+
+        .brownoverlay1L {
+            position: absolute;
+            top: 130px;
+            left: calc(20% - 25px);
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 25px 25px 25px 0;
+            border-color: transparent #bb0c30 transparent transparent;
+        }
+
+        .blueoverlay3L {
+            position: absolute;
+            top: 230px;
+            height: 0;
+            width: calc(20% + 44px);
+            border-bottom-width: 15px;
+            border-bottom-style: outset;
+            border-bottom-color: #051d3c;
+        }
+
+        .blueoverlay3R {
+            position: absolute;
+            top: 230px;
+            height: 0;
+            right: 0;
+            width: calc(20% + 44px);
+            border-bottom-width: 15px;
+            border-bottom-style: outset;
+            border-bottom-color: #051d3c;
+        }
+
+        .blueoverlay4R {
+            position: absolute;
+            top: 230px;
+            right: calc(20% + 44px);
+            width: 0;
+            height: 0;
+            border-style: outset;
+            border-width: 0 0 15px 15px;
+            border-color: transparent transparent #051d3c transparent;
+        }
+
+        .blueoverlay4L {
+            position: absolute;
+            top: 230px;
+            left: calc(20% + 44px);
+            width: 0;
+            height: 0;
+            border-style: inset;
+            border-width: 15px 0 0 15px;
+            border-color: transparent transparent transparent #051d3c;
+        }
+
+        .redoverlay1R {
+            position: absolute;
+            top: 97px;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 133px 133px;
+            border-color: transparent transparent #bb9b5c transparent;
+        }
+
+        .redoverlay1L {
+            position: absolute;
+            top: 97px;
+            left: 0;
+            width: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 133px 0 0 133px;
+            border-color: transparent transparent transparent #bb9b5c;
+        }
+
+        .redoverlay2L {
+            position: absolute;
+            top: 230px;
+            height: 0;
+            right: 0;
+            width: 133px;
+            border-bottom-width: 15px;
+            border-bottom-style: outset;
+            border-bottom-color: #bb9b5c;
+        }
+
+        .redoverlay2R {
+            position: absolute;
+            top: 230px;
+            height: 0;
+            left: 0;
+            width: 133px;
+            border-bottom-width: 15px;
+            border-bottom-style: outset;
+            border-bottom-color: #bb9b5c;
+        }
+
+        .redoverlay3R {
+            position: absolute;
+            top: 230px;
+            right: 133px;
+            width: 0;
+            height: 0;
+            border-style: outset;
+            border-width: 0 0 15px 15px;
+            border-color: transparent transparent #bb9b5c transparent;
+        }
+
+        .redoverlay3L {
+            position: absolute;
+            top: 230px;
+            left: 133px;
+            width: 0;
+            height: 0;
+            border-style: inset;
+            border-width: 15px 0 0 15px;
+            border-color: transparent transparent transparent #bb9b5c;
+        }
+
+
+
+        @media screen and (max-width: 500px) {
+            .redoverlay1R {
+                top: 130px;
+                border-width: 0 0 100px 100px;
+            }
+
+            .redoverlay1L {
+                top: 130px;
+                border-width: 100px 0 0 100px;
+            }
+
+            .redoverlay3R {
+                right: 100px;
+
+            }
+
+            .redoverlay3L {
+                left: 100px;
+            }
+
+            .redoverlay2R {
+                width: 100px;
+
+            }
+
+            .redoverlay2L {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="colorsdiv">
+        <div class="smallcolor1"></div>
+        <div class="smallcolor2"></div>
+        <div class="smallcolor3"></div>
+        <div class="smallcolor4"></div>
+        <div class="smallcolor5"></div>
+
+    </div>
+    <header class="header">
+        PELICANS
+    </header>
+    <div class="boxarrowcontainer">
+        <div class="leftBoxArrow">
+            <div class="innerarrowleftTri ">
+            </div>
+        </div>
+        <div class="rightBoxArrow">
+
+            <div class="innerarrowrightTri ">
+            </div>
+
+        </div>
+
+    </div>
+    <div class="downmenu">
+        <div class="innerarrowdownTri ">
+        </div>
+
+    </div>
+    <div class="blueoverlay1R">
+
+    </div>
+    <div class="blueoverlay1L">
+
+    </div>
+    <div class="blueoverlay2L">
+
+    </div>
+    <div class="blueoverlay2R">
+    </div>
+    <div class="blueoverlay3L">
+
+    </div>
+    <div class="blueoverlay3R">
+    </div>
+    <div class="blueoverlay4L">
+
+    </div>
+    <div class="blueoverlay4R">
+    </div>
+    <div class="brownoverlay1R">
+    </div>
+    <div class="brownoverlay1L">
+    </div>
+    <div class="redoverlay1R">
+    </div>
+    <div class="redoverlay1L">
+    </div>
+    <div class="redoverlay2R">
+    </div>
+    <div class="redoverlay2L">
+    </div>
+    <div class="redoverlay3R">
+    </div>
+    <div class="redoverlay3L">
+    </div>
+    <div class="blueoverlay5L">
+
+    </div>
+    <div class="blueoverlay5R">
+    </div>
+
+
+    <div class="backgroundifuser">
+
+
+    </div>
+    <div>
+
+    </div>
+    <script>
+
+    </script>
+</body>
+
+</html>
