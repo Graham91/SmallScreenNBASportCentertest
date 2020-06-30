@@ -11,18 +11,6 @@
             margin: 0;
         }
 
-        @media screen and (max-width: 929px) {
-
-            body {
-                margin: 0;
-                background-image: url("https://i.imgur.com/qbQcmgr.png");
-                background-size: 95%;
-                background-position: center 180px;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-
-            }
-        }
 
 
         .header {
@@ -125,6 +113,7 @@
             border-width: 0 5px 5px 0;
             display: inline-block;
             padding: 5px;
+            z-index: 2;
             transform: rotate(-45deg);
             -webkit-transform: rotate(-45deg);
         }
@@ -133,6 +122,7 @@
             position: absolute;
             top: 8px;
             left: 50%;
+            z-index: 2;
             border: solid white;
             border-width: 0 5px 5px 0;
             display: inline-block;
@@ -144,6 +134,7 @@
 
         .innerarrowdownTri {
             position: absolute;
+            z-index: 2;
             top: 4px;
             left: calc(50% - 8px);
             border: solid white;
@@ -197,6 +188,7 @@
         .brownoverlay1R {
             position: absolute;
             top: 78px;
+            z-index: 1;
             right: calc(20% - 15px);
             width: 0;
             height: 0;
@@ -208,6 +200,7 @@
         .brownoverlay1L {
             position: absolute;
             top: 78px;
+            z-index: 1;
             left: calc(20% - 15px);
             width: 0;
             height: 0;
@@ -332,7 +325,7 @@
             width: calc(30% + 12px);
             top: 78px;
             height: 30px;
-
+            z-index: 5;
             left: calc(20% - 15px);
 
         }
@@ -342,6 +335,7 @@
             display: none;
             position: absolute;
             border-style: solid;
+            z-index: 1;
             border-width: 15px 15px 15px 0;
             opacity: .5;
             border-color: transparent black transparent transparent;
@@ -352,6 +346,7 @@
             top: 6px;
             left: 3px;
             position: absolute;
+            z-index: 1;
             border-style: solid;
             border-width: 12px 12px 12px 0;
             border-color: transparent #bb0c30 transparent transparent;
@@ -374,8 +369,19 @@
             width: calc(30% + 12px);
             top: 78px;
             height: 30px;
-
+            z-index: 5;
             right: calc(20% - 15px);
+
+        }
+
+        .smallimage {
+            /* margin: 0 auto; */
+            z-index: 10;
+            height: 72px;
+            position: relative;
+            border-style: outset;
+            border-width: 15px;
+            border-color: #bb0c30;
 
         }
 
@@ -444,6 +450,20 @@
             border-color: transparent black transparent transparent;
         }
 
+        .outsideimagemargin {
+            z-index: 10;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            position: absolute;
+            background-color: #051d3c;
+            width: fit-content;
+            height: 102px;
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+
         .shadowbottom3 {
             display: none;
             position: absolute;
@@ -457,6 +477,44 @@
             opacity: .5;
         }
 
+        .smallcentraldiv {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+            top: 180px;
+            width: 90%;
+            border: solid 4px white;
+
+        }
+
+        .innersmalldiv {
+            margin: 10px;
+            border: solid 6px white;
+        }
+
+        .smallscreentitle {
+            margin: 0;
+            position: relative;
+            top: 0px;
+            font-size: 2em;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            width: calc(100% - 16px);
+            padding: 10px;
+            background-color: white;
+            text-align: center;
+        }
+
+        .innersmalldivbackground {
+            position: absolute;
+            background-color: white;
+            height: calc(100% - 32px);
+            width: calc(100% - 32px);
+            opacity: .5;
+        }
+
         .spacertest {
             height: 50px;
             width: 80%;
@@ -465,6 +523,10 @@
             background-color: blueviolet;
         }
 
+        .smallscreenborder {
+            display: none;
+
+        }
 
 
         @media screen and (max-width: 500px) {
@@ -495,6 +557,42 @@
             .redoverlay2L {
                 width: 60px;
             }
+
+            .smallcentraldiv {
+                width: calc(100% - 8px);
+            }
+
+            .smallscreentitle {
+                font-size: 1.5em;
+            }
+
+            .innerarrowleftTri {
+
+                left: calc(50% - 15px);
+
+            }
+
+            .innerarrowrightTri {
+                left: calc(50% - 1px);
+            }
+
+        }
+
+        @media screen and (max-width: 929px) {
+            .smallscreenborder {
+                display: block;
+
+            }
+
+            body {
+                margin: 0;
+                background-image: url("https://i.imgur.com/qbQcmgr.png");
+                background-size: 95%;
+                background-position: center 180px;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+
+            }
         }
     </style>
 </head>
@@ -509,7 +607,9 @@
             <div class="smallcolor5"></div>
         </div>
         <header class="header">
-            PELICANS
+            <div class="outsideimagemargin">
+                <img src="https://i.imgur.com/qbQcmgr.png" class="smallimage">
+            </div>
         </header>
         <div class="boxarrowcontainer">
             <div class="leftBoxArrow">
@@ -549,7 +649,6 @@
             <div class="shadowright2"></div>
             <div class="shadowright3"></div>
         </div>
-
         <div class="shadowbottom">
             <div class="shadowbottom1"></div>
             <div class="shadowbottom2"></div>
@@ -557,6 +656,25 @@
         </div>
         <div class="blueoverlay5R"></div>
         <div class="backgroundifuser"></div>
+        <div class="smallcentraldiv">
+            <div class="innersmalldiv">
+                <div class="innersmalldivbackground"></div>
+                <div class="smallscreentitle">Favorite Team</div>
+                <div class="spacertest"></div>
+                <div class="spacertest"></div>
+                <div class="spacertest"></div>
+                <div class="spacertest"></div>
+                <div class="spacertest"></div>
+                <div class="spacertest"></div>
+                <div class="spacertest"></div>
+                <div class="spacertest"></div>
+                <div class="spacertest"></div>
+                <div class="spacertest"></div>
+                <div class="spacertest"></div>
+                <div class="spacertest"></div>
+            </div>
+
+        </div>
     </div>
 
     <script>
@@ -602,37 +720,39 @@
                 $(".shadowbottom2").css("display", "block");
                 $(".shadowbottom3").css("display", "block");
             });
-        $(".header").css("background-color", color2);
-        $(".smallcolor1").css("background-color", color1);
-        $(".smallcolor2").css("background-color", color2);
-        $(".smallcolor3").css("background-color", color3);
-        $(".smallcolor4").css("background-color", color4);
-        $(".smallcolor5").css("background-color", color5);
-        $(".leftBoxArrow").css("background-color", color3);
-        $(".leftBoxArrow").css("border-right-color", color2);
-        $(".rightBoxArrow").css("background-color", color3);
-        $(".rightBoxArrow").css("border-left-color", color2);
-        $(".downmenu").css("background-color", color3);
-        $(".downmenu").css("border-top-color", color2);
-        $(".downmenu").css("border-bottom-color", color3);
-        $(".backgroundifuser").css("background", "linear-gradient(180deg, rgba(255, 255, 255, .6) 0%, " + color2 + " 100%)");
-        $(".shadowleft2").css("border-color", "transparent " + color3 + " transparent transparent");
-        $(".blueoverlay1R").css("border-color", "transparent transparent " + color2 + " transparent");
-        $(".blueoverlay1L").css("border-color", "transparent transparent transparent " + color2);
-        $(".blueoverlay2L").css("background-color", color2);
-        $(".blueoverlay2R").css("background-color", color2);
-        $(".brownoverlay1R").css("border-color", "transparent transparent transparent " + color3)
-        $(".brownoverlay1L").css("border-color", "transparent " + color3 + " transparent transparent");
-        $(".blueoverlay3L").css("border-bottom-color", color2);
-        $(".blueoverlay3R").css("border-bottom-color", color2);
-        $(".blueoverlay4R").css("border-color", "transparent transparent " + color2 + " transparent");
-        $(".blueoverlay4L").css("border-color", "transparent transparent transparent " + color2);
-        $(".redoverlay1R").css("border-color", "transparent transparent " + color4 + " transparent");
-        $(".redoverlay1L").css("border-color", "transparent transparent transparent " + color4);
-        $(".redoverlay2L").css("border-bottom-color", color4);
-        $(".redoverlay2R").css("border-bottom-color", color4);
-        $(".redoverlay3R").css("border-color", "transparent transparent " + color4 + " transparent");
-        $(".redoverlay3L").css("border-color", "transparent transparent transparent " + color4);
+        // $(".header").css("background-color", color2);
+        // $(".smallcolor1").css("background-color", color1);
+        // $(".smallcolor2").css("background-color", color2);
+        // $(".smallcolor3").css("background-color", color3);
+        // $(".smallcolor4").css("background-color", color4);
+        // $(".smallcolor5").css("background-color", color5);
+        // $(".leftBoxArrow").css("background-color", color3);
+        // $(".leftBoxArrow").css("border-right-color", color2);
+        // $(".rightBoxArrow").css("background-color", color3);
+        // $(".rightBoxArrow").css("border-left-color", color2);
+        // $(".downmenu").css("background-color", color3);
+        // $(".downmenu").css("border-top-color", color2);
+        // $(".downmenu").css("border-bottom-color", color3);
+        // $(".backgroundifuser").css("background", "linear-gradient(180deg, rgba(255, 255, 255, .6) 0%, " + color2 + " 100%)");
+        // $(".shadowleft2").css("border-color", "transparent " + color3 + " transparent transparent");
+        // $(".blueoverlay1R").css("border-color", "transparent transparent " + color2 + " transparent");
+        // $(".blueoverlay1L").css("border-color", "transparent transparent transparent " + color2);
+        // $(".blueoverlay2L").css("background-color", color2);
+        // $(".blueoverlay2R").css("background-color", color2);
+        // $(".brownoverlay1R").css("border-color", "transparent transparent transparent " + color3)
+        // $(".brownoverlay1L").css("border-color", "transparent " + color3 + " transparent transparent");
+        // $(".blueoverlay3L").css("border-bottom-color", color2);
+        // $(".blueoverlay3R").css("border-bottom-color", color2);
+        // $(".blueoverlay4R").css("border-color", "transparent transparent " + color2 + " transparent");
+        // $(".blueoverlay4L").css("border-color", "transparent transparent transparent " + color2);
+        // $(".redoverlay1R").css("border-color", "transparent transparent " + color4 + " transparent");
+        // $(".redoverlay1L").css("border-color", "transparent transparent transparent " + color4);
+        // $(".redoverlay2L").css("border-bottom-color", color4);
+        // $(".redoverlay2R").css("border-bottom-color", color4);
+        // $(".redoverlay3R").css("border-color", "transparent transparent " + color4 + " transparent");
+        // $(".redoverlay3L").css("border-color", "transparent transparent transparent " + color4);
+        // $(".smallimage").css("border-color", color3);
+        // $(".smallimage").css("border-left-color", color3);
 
     </script>
 </body>
